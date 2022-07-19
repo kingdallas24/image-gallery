@@ -1,18 +1,21 @@
+/* Set grid for image gallery */
+
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fill, 100px);
   grid-auto-rows: 100px;
-
   grid-auto-flow: dense;
 }
 
+/* Set item properties */
 .item {
-  overflow: hidden;
+  display: grid;
   grid-template-columns: 1;
   grid-template-rows: 1;
-  object-fit: cover;
-  display: grid;
+  overflow: hidden;
 }
+
+/* Set image properties */
 
 .item img {
   grid-column: 1 / -1;
@@ -22,10 +25,12 @@
   object-fit: cover;
 }
 
+/* Set DOM overlay properties */
+
 .item-overlay {
+  background: rgba(10, 250, 25, 0.3);
   grid-column: 1 / -1;
   grid-row: 1 / -1;
-  background: rgba(75, 130, 255, 0.3);
   display: grid;
   justify-items: center;
   align-items: center;
@@ -37,64 +42,78 @@
   transform: translateY(0);
 }
 
+/* Style button */
+
 .item-overlay button {
   color: white;
-  border: 2px solid white;
+  border: 1px solid white;
+  border-radius: 10px;
+  font-weight: bold;
+  padding: 10px;
   text-transform: uppercase;
-  background: none;
+  background: rgba(0, 0, 0, 0.4);
 }
 
-.item.v2 {
-  grid-column: span 2;
+/* Set default overlay properties */
+
+.overlay {
+  background: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: none;
 }
 
-.item.v3 {
-  grid-column: span 3;
-}
-
-.item.v4 {
-  grid-column: span 4;
-}
-
-.item.h2 {
-  grid-row: span 2;
-}
-
-.item.h3 {
-  grid-row: span 3;
-}
-
-.item.h4 {
-  grid-row: span 4;
-}
+/* Set overlay properties for when an item is clicked */
 
 .overlay.open {
   display: grid;
-  align-items: center;
-  justify-items: center;
+  justify-content: center;
+  align-content: center;
+  object-fit: contain;
 }
 
-.overlay {
-  position: fixed;
-  background: rgba(0, 0, 0, 0.7);
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: none;
-}
+/* Set inner overlay properties when item is clicked */
 
 .inner-overlay {
   width: 800px;
   height: 800px;
   background: white;
-  padding: 10px;
   display: grid;
-  align-items: center;
   justify-items: center;
+  align-items: center;
 }
 
-.close {
-  display: block;
-  margin: 0 auto;
+/* Set span values for horizontal and vertical */
+
+.item.v2 {
+  grid-row: span 2;
+}
+
+.item.v3 {
+  grid-row: span 3;
+}
+
+.item.v4 {
+  grid-row: span 4;
+}
+
+.item.h2 {
+  grid-column: span 2;
+}
+
+.item.h3 {
+  grid-column: span 3;
+}
+
+.item.h4 {
+  grid-column: span 4;
+}
+
+.open-img {
+  width: 700px;
+  height: 700px;
+  object-fit: contain;
 }
